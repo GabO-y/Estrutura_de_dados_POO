@@ -1,4 +1,6 @@
-package org.example;
+package org.example.Struacts;
+
+import org.example.Element;
 
 public class Queue {
 
@@ -62,5 +64,10 @@ public class Queue {
 
     public void setElement(Element element) {
         this.element = element;
+    }
+
+    @Override
+    public String toString(){
+        return "Value: " + element.getValue().toString();
     }
 }

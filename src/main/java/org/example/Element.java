@@ -32,4 +32,8 @@ public class Element {
         this.prox = prox;
     }
 
+    public String toString(){
+        return "Value: " + value;
+    }
+
 }

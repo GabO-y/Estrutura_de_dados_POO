@@ -1,9 +1,12 @@
 package org.example;
 
+import org.example.Struacts.Queue;
+import org.example.Struacts.Stack;
+
 public class Main {
     public static void main(String[] args) {
 
-        Queue q = new Queue();
+        Stack q = new Stack();
 
         q.push(10);
         q.push(20);
@@ -12,9 +15,7 @@ public class Main {
 
         q.show();
 
-        q.pop();
-
-        q.show();
+        System.out.println(q.peek());
 
 
 
