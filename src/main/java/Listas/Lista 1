@@ -6,9 +6,9 @@ X 3. Implemente a classe PilhaFila que utiliza Filas para simular uma Pilha.
 
 X 4. Implemente a classe FilaPilha que utiliza Pilhas para simular uma Fila.
 
-5. Defina um método em Pilha que retorna uma Fila equivalente.
+X 5. Defina um método em Pilha que retorna uma Fila equivalente.
 
-6. Defina um método em Fila que retorna uma Pilha equivalente.
+X 6. Defina um método em Fila que retorna uma Pilha equivalente.
 
 7. Na classe Lista, implemente o método inverte que retorna uma Lista com os elementos
 em ordem invertida.

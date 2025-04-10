@@ -8,18 +8,35 @@ import org.example.Struacts.StackQueue;
 public class Main {
     public static void main(String[] args) {
 
-        QueueStack q = new QueueStack();
+        Stack s = new Stack();
+        Queue q = new Queue();
 
-        q.push(10);
-        q.push(20);
-        q.push(30);
-
-        q.pop();
-        q.pop();
+        s.push(10);
+        s.push(20);
+        s.push(30);
 
 
+        q = s.toQueue();
 
         q.show();
+
+        Stack stack = q.toStack();
+
+        System.out.println("------------ ");
+
+        stack.show();
+
+        System.out.println("------------ ");
+
+
+        stack.pop();
+            q.pop();
+
+
+            stack.show();
+        System.out.println("------------ ");
+            q.show();
+
 
 
 

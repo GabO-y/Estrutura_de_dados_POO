@@ -84,6 +84,26 @@ public class Queue {
         this.element = element;
     }
 
+    public Stack toStack(){
+
+        if(size() == 0){
+            System.out.println("Queue empty");
+            return null;
+        }
+
+        Stack stack = new Stack();
+
+        var current = element;
+
+        while(current != null){
+            stack.push(current.getValue());
+            current = current.getProx();
+        }
+
+        return stack;
+
+    }
+
     @Override
     public String toString(){
         return "Value: " + element.getValue().toString();
