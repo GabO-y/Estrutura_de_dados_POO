@@ -5,31 +5,27 @@ import org.example.Struacts.*;
 public class Main {
     public static void main(String[] args) {
 
-      List list = new List();
+        ArrayList list = new ArrayList();
 
-      //10 13 15 20 30 40 50 16
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        list.addFirst(0);
 
-      list.add(10);
-      list.add(20, 5);
-      list.add(30, 10);
-      list.add(40, 15);
-      list.add(50, 20);
-      list.add(60, 25);
+     list.add(15, 3);
+     list.add(25, 5);
 
+     list.add(35,   1);
 
-      list.removeLast();
-
-
-      list.show();
-
-        System.out.println("------------------------");
+     list.remove(1);
+     list.remove(list.size());
 
 
-      list.showAll();
+        list.show();
 
-        System.out.println("-------------");
 
-      list.show(true);
+
 
 
 

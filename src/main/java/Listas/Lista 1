@@ -19,7 +19,7 @@ elemento na posição especificada. A posição pode ou não existir.
 X 9. Implemente uma classe ListaDupla que implementa o duplo encadeamento dos blocos.
 Sendo assim o Bloco precisa ser também modificado.
 
-10. Implemente a Lista com array ao invés de uma lista encadeada. No array, blocos
+X 10. Implemente a Lista com array ao invés de uma lista encadeada. No array, blocos
 também serão adicionados.
 
 11. Implemente a classe ListaRecursiva que define métodos recursivos de localizar e de
