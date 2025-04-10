@@ -10,7 +10,7 @@ X 5. Defina um método em Pilha que retorna uma Fila equivalente.
 
 X 6. Defina um método em Fila que retorna uma Pilha equivalente.
 
-7. Na classe Lista, implemente o método inverte que retorna uma Lista com os elementos
+X 7. Na classe Lista, implemente o método inverte que retorna uma Lista com os elementos
 em ordem invertida.
 
 8. Implemente em Lista o método para addElemento(int valor, int pos) que adiciona um
@@ -41,7 +41,7 @@ ocorrência.
 de Lista com os mesmos elementos da lista original.16. Implemente a classe FilaPrioridade. os elementos serão retirados com base em sua
 prioridade (maior prioridade sai primeiro).
 
-17. Implemente o método “removeElemento(int pos)” na classe Lista. Esse método deve
+X 17. Implemente o método “removeElemento(int pos)” na classe Lista. Esse método deve
 remover o elemento na posição especificada.
 
 18. Adicione o método “localizarMaior(int valor)” na classe Lista. Esse método deve retornar
