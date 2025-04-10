@@ -171,18 +171,20 @@ public class List {
         }
 
 
-        var current = element;
+//        var current = element;
+//
+//        while(current != null){
+//
+//            if(current.getPos() == pos){
+//                return current;
+//            }
+//
+//            current = current.getProx();
+//        }
+//
+//        return current;
 
-        while(current != null){
-
-            if(current.getPos() == pos){
-                return current;
-            }
-
-            current = current.getProx();
-        }
-
-        return current;
+        return get(element, pos);
 
     }
 
@@ -268,15 +270,18 @@ public class List {
             return 0;
         }
 
-        var current = element;
-        int tam = 0;
+//        var current = element;
+//        int tam = 0;
+//
+//        while(current != null){
+//            tam++;
+//            current = current.getProx();
+//        }
+//
+//        return tam;
 
-        while(current != null){
-            tam++;
-            current = current.getProx();
-        }
+        return size(element, 0);
 
-        return tam;
     }
 
     public List invert(){
@@ -319,4 +324,25 @@ public class List {
        }
     }
 
+    private int size(Element element, int num){
+
+        if(element == null){
+            return num;
+        }
+
+
+        num++;
+        return size(element.getProx(), num);
+    }
+
+    private Element get(Element element, int pos) {
+
+        if(element.getProx() == null || pos == 1){
+        return element;
+        }
+
+        pos--;
+
+        return get(element.getProx(), pos);
+    }
 }

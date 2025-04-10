@@ -22,7 +22,7 @@ Sendo assim o Bloco precisa ser também modificado.
 X 10. Implemente a Lista com array ao invés de uma lista encadeada. No array, blocos
 também serão adicionados.
 
-11. Implemente a classe ListaRecursiva que define métodos recursivos de localizar e de
+X 11. Implemente a classe ListaRecursiva que define métodos recursivos de localizar e de
 tamanha. Lembre-se que os métodos devem ser declarados como private para não
 ficarem disponíveis para o usuário programador.
 
