@@ -62,6 +62,24 @@ public class Queue {
 
     }
 
+    public int size(){
+
+        if(element == null){
+            return 0;
+        }
+
+        int tam = 0;
+        var current = element;
+
+        while(current != null){
+            tam++;
+            current = current.getProx();
+        }
+
+        return tam;
+
+    }
+
     public void setElement(Element element) {
         this.element = element;
     }

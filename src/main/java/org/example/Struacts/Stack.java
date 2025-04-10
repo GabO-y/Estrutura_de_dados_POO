@@ -94,6 +94,24 @@ public class Stack {
         this.element = element;
     }
 
+    public int size(){
+
+        if(element == null){
+            return 0;
+        }
+
+        int tam = 0;
+        var current = element;
+
+        while(current != null){
+            tam++;
+            current = current.getProx();
+        }
+
+        return tam;
+
+    }
+
     @Override
     public String toString(){
         return "Value: " + element.getValue().toString();

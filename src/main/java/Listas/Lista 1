@@ -1,6 +1,6 @@
 X 1. Implemente a classe Fila adicionando os métodos push e pop.
 
-2. Adicione o método “topo” na classe Pilha que retorna o topo da Pilha.
+X 2. Adicione o método “topo” na classe Pilha que retorna o topo da Pilha.
 
 3. Implemente a classe PilhaFila que utiliza Filas para simular uma Pilha.
 
