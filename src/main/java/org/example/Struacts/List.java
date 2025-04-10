@@ -18,10 +18,52 @@ public class List {
 
         if(element.getValue() == null){
             element.setValue(value);
+            element.setPos(size());
             return;
         }
 
         add(value, false);
+    }
+
+    public void add(int value, int pos){
+
+
+        if(pos < 1){
+            throw new RuntimeException("Position need to be positive");
+        }
+
+        if(pos == 1){
+            add(value, true);
+            return;
+        }
+
+        if(pos > getLast().getPos()){
+
+            add(value);
+            getLast().setPos(pos);
+            return;
+
+        }
+
+        var current = element;
+
+        while(current != null){
+
+            if(current.getProx().getPos() == pos){
+                current.setProx(new Element(value, current.getProx(), pos));
+                break;
+            }
+
+            if(current.getProx().getPos() > pos){
+                current.setProx(new Element(value, current.getProx(), pos));
+                break;
+            }
+
+            current = current.getProx();
+        }
+
+        updatePos();
+
     }
 
     public void add(Integer value, Boolean begin){
@@ -32,38 +74,68 @@ public class List {
         }
 
         if(begin){
-            element = new Element(value, element);
+            element = new Element(value, element, 1);
+            updatePos();
         }else{
-            getLast().setProx(new Element(value));
+            getLast().setProx(new Element(value, null, size() + 1));
         }
 
     }
 
     public void removeLast(){
-        remove(size());
+
+        if(size() == 0){
+            throw new RuntimeException("Empty list");
+        }
+
+        if(size() == 1){
+            removeFirst();
+        }
+
+        Element current = null;
+
+        for(int i = getLast().getPos() - 1; current == null; i--){
+                current = get(i);
+        }
+
+        current.setProx(null);
     }
 
     public void removeFirst(){
-        remove(1);
+
+        if(size() == 0){
+            throw new RuntimeException("Empty list");
+        }
+
+        element = element.getProx();
+        updatePos();
     }
 
     public void remove(int pos){
 
-        if(pos > size() || pos <= 0){
+        if(pos <= 0){
             return;
         }
 
         if(pos == 1){
-            element = element.getProx();
+            removeFirst();
             return;
         }
 
-        if(pos == size()){
-            get(pos - 1).setProx(null);
+        if(pos == getLast().getPos()){
+            removeLast();
             return;
         }
 
-        get(pos - 1).setProx(get(pos + 1));
+        Element current = null;
+
+        for(int i = pos - 1; current == null; i--){
+            current = get(i);
+        }
+
+        current.setProx(current.getProx().getProx());
+        updatePos();
+
     }
 
     public Element get(int pos){
@@ -73,16 +145,23 @@ public class List {
             return null;
         }
 
-        if(pos == size()){
+        if(pos == getLast().getPos()){
             return getLast();
         }
+
         if(pos == 1){
             return getFirst();
         }
 
+
         var current = element;
 
-        for(int i = 1; i < pos; i++){
+        while(current != null){
+
+            if(current.getPos() == pos){
+                return current;
+            }
+
             current = current.getProx();
         }
 
@@ -128,8 +207,8 @@ public class List {
 
         var current = element;
 
-        for(int i = 1; current != null; i++){
-            System.out.println(i + " - " + current.getValue());
+        while(current != null){
+            System.out.println(current.getPos() + " - " + current.getValue());
             current = current.getProx();
         }
 
@@ -171,4 +250,36 @@ public class List {
         return list;
 
     }
+
+    private void updatePos(){
+
+        if(size() == 0){
+            System.out.println("Empty list");
+            return;
+        }
+
+        var current = element;
+
+        if(current.getPos() != 1){
+            current.setPos(1);
+        }
+
+       while(current != null){
+
+           try{
+
+           if(current.getPos() == current.getProx().getPos()){
+               current.getProx().setPos(current.getPos() + 1);
+           }
+
+           }catch(Exception _){
+
+           }
+           current = current.getProx();
+       }
+
+
+
+    }
+
 }

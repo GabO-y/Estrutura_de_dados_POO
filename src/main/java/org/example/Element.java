@@ -4,10 +4,12 @@ public class Element {
 
     private Integer value;
     private Element prox;
+    private int pos;
 
-    public Element(Integer value, Element prox) {
+    public Element(Integer value, Element prox, int pos) {
         this.value = value;
         this.prox = prox;
+        this.pos = pos;
     }
 
     public Element(Integer value) {
@@ -36,4 +38,11 @@ public class Element {
         return "Value: " + value;
     }
 
+    public int getPos() {
+        return pos;
+    }
+
+    public void setPos(int pos) {
+        this.pos = pos;
+    }
 }

@@ -13,7 +13,7 @@ X 6. Defina um método em Fila que retorna uma Pilha equivalente.
 X 7. Na classe Lista, implemente o método inverte que retorna uma Lista com os elementos
 em ordem invertida.
 
-8. Implemente em Lista o método para addElemento(int valor, int pos) que adiciona um
+X 8. Implemente em Lista o método para addElemento(int valor, int pos) que adiciona um
 elemento na posição especificada. A posição pode ou não existir.
 
 9. Implemente uma classe ListaDupla que implementa o duplo encadeamento dos blocos.
