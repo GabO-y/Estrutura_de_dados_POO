@@ -2,6 +2,8 @@ package org.example.Struacts;
 
 import org.example.Element;
 
+import java.util.Objects;
+
 public class List {
 
     Element element;
@@ -18,7 +20,7 @@ public class List {
 
         if(element.getValue() == null){
             element.setValue(value);
-            element.setPos(size());
+            element.setPos(1);
             return;
         }
 
@@ -38,24 +40,32 @@ public class List {
         }
 
         if(pos > getLast().getPos()){
-
             add(value);
             getLast().setPos(pos);
             return;
-
         }
+
+
 
         var current = element;
 
         while(current != null){
 
             if(current.getProx().getPos() == pos){
-                current.setProx(new Element(value, current.getProx(), pos));
+
+                var aux = current.getProx();
+
+                current.setProx(new Element(value, pos));
+                current.getProx().setAnte(current);
+                current.getProx().setProx(aux);
+
                 break;
             }
 
             if(current.getProx().getPos() > pos){
-                current.setProx(new Element(value, current.getProx(), pos));
+                current.setProx(new Element(value, current.getProx(),current, pos));
+                current.getProx().setAnte(current);
+
                 break;
             }
 
@@ -74,13 +84,15 @@ public class List {
         }
 
         if(begin){
-            element = new Element(value, element, 1);
+            element = new Element(value, element,null, 1);
             updatePos();
         }else{
-            getLast().setProx(new Element(value, null, size() + 1));
+            var aux = getLast();
+            getLast().setProx(new Element(value, null, aux, getLast().getPos() + 1));
         }
 
     }
+
 
     public void removeLast(){
 
@@ -101,6 +113,7 @@ public class List {
         current.setProx(null);
     }
 
+
     public void removeFirst(){
 
         if(size() == 0){
@@ -108,8 +121,11 @@ public class List {
         }
 
         element = element.getProx();
+        element.setAnte(null);
+
         updatePos();
     }
+
 
     public void remove(int pos){
 
@@ -137,6 +153,7 @@ public class List {
         updatePos();
 
     }
+
 
     public Element get(int pos){
 
@@ -180,9 +197,7 @@ public class List {
     public Element getLast(){
 
         if(size() == 0){
-
             System.out.println("Empty list");
-
             return null;
         }
 
@@ -208,7 +223,40 @@ public class List {
         var current = element;
 
         while(current != null){
-            System.out.println(current.getPos() + " - " + current.getValue());
+            System.out.println(current.getPos() + " - [" + current.getValue() + "]");
+            current = current.getProx();
+        }
+
+    }
+
+    public void show(boolean inverse){
+
+        if(size() == 0){
+
+            System.out.println("Empty list");
+
+            return;
+        }
+
+        var current = getLast();
+
+        while(current != null){
+            System.out.println(current.getPos() + " - [" + current.getValue() + "]");
+            current = current.getAnte();
+        }
+
+    }
+
+    public void showAll(){
+
+        if(size() == 0){
+            throw new RuntimeException("Empty list");
+        }
+
+        var current = element;
+
+        while(current != null){
+            System.out.println(current);
             current = current.getProx();
         }
 
@@ -260,26 +308,15 @@ public class List {
 
         var current = element;
 
-        if(current.getPos() != 1){
-            current.setPos(1);
-        }
+       while(current.getProx() != null){
 
-       while(current != null){
+            while(current.getPos() - current.getProx().getPos() >= 0){
 
-           try{
+                current.getProx().setPos(current.getProx().getPos() + 1);
+            }
 
-           if(current.getPos() == current.getProx().getPos()){
-               current.getProx().setPos(current.getPos() + 1);
-           }
-
-           }catch(Exception _){
-
-           }
            current = current.getProx();
        }
-
-
-
     }
 
 }
