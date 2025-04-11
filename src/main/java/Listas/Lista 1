@@ -37,8 +37,10 @@ X 14. Implemente um método “removeDuplicados” na classe Lista. Esse método
 percorrer a lista e remover todos os elementos duplicados, mantendo apenas a primeira
 ocorrência.
 
-15. Crie um método “clone” na classe Lista. Esse método deve retornar uma nova instância
-de Lista com os mesmos elementos da lista original.16. Implemente a classe FilaPrioridade. os elementos serão retirados com base em sua
+X 15. Crie um método “clone” na classegetProx Lista. Esse método deve retornar uma nova instância
+de Lista com os mesmos elementos da lista original.
+
+16. Implemente a classe FilaPrioridade. os elementos serão retirados com base em sua
 prioridade (maior prioridade sai primeiro).
 
 X 17. Implemente o método “removeElemento(int pos)” na classe Lista. Esse método deve

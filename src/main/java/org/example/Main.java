@@ -8,19 +8,15 @@ public class Main{
 
         List list1 = new List();
 
-        list1.add(10, 1);
-        list1.add(10, 1);
-        list1.add(10, 1);
-        list1.add(10, 1);
+        list1.add(1);
+        list1.add(2);
+        list1.add(3);
 
+        var list2 = list1.clone();
 
-        list1.show();
+        list2.show();
 
-        list1.removeDuplicate();
-
-        System.out.println("------------");
-
-        list1.show();
+        System.out.println(list2.size());
 
 
 

@@ -109,9 +109,7 @@ public class List {
 
     public void removeLast(){
 
-        if(size() == 0){
-            throw new RuntimeException("Empty list");
-        }
+        error();
 
         if(size() == 1){
             removeFirst();
@@ -126,19 +124,15 @@ public class List {
         current.getAnte().setProx(null);
     }
 
-
     public void removeFirst(){
 
-        if(size() == 0){
-            throw new RuntimeException("Empty list");
-        }
+        error();
 
         element = element.getProx();
         element.setAnte(null);
 
         updatePos();
     }
-
 
     public void remove(int pos){
 
@@ -172,13 +166,9 @@ public class List {
 
     }
 
-
     public Element get(int pos){
 
-        if(size() == 0){
-            System.out.println("List empty");
-            return null;
-        }
+        error();
 
         if(pos == getLast().getPos()){
             return getLast();
@@ -207,19 +197,13 @@ public class List {
     }
 
     public Element getFirst(){
-        if(size() == 0){
-            System.out.println("Empty list");
-            return null;
-        }
+        error();
         return element;
     }
 
     public Element getLast(){
 
-        if(size() == 0){
-            System.out.println("Empty list");
-            return null;
-        }
+        error();
 
         var current = element;
 
@@ -233,12 +217,7 @@ public class List {
 
     public void show(){
 
-        if(size() == 0){
-
-            System.out.println("Empty list");
-
-            return;
-        }
+        error();
 
         var current = element;
 
@@ -251,12 +230,7 @@ public class List {
 
     public void show(boolean inverse){
 
-        if(size() == 0){
-
-            System.out.println("Empty list");
-
-            return;
-        }
+        error();
 
         var current = getLast();
 
@@ -269,9 +243,7 @@ public class List {
 
     public void showAll(){
 
-        if(size() == 0){
-            throw new RuntimeException("Empty list");
-        }
+        error();
 
         var current = element;
 
@@ -304,10 +276,7 @@ public class List {
 
     public List invert(){
 
-        if(size() == 0){
-            System.out.println("List empty");
-            return null;
-        }
+        error();
 
         List list = new List();
 
@@ -324,10 +293,7 @@ public class List {
 
     private void updatePos(){
 
-        if(size() == 0){
-            System.out.println("Empty list");
-            return;
-        }
+        error();
 
         var current = element;
 
@@ -366,16 +332,13 @@ public class List {
 
     public void removeDuplicate(){
 
-        if(size() == 0){
-            throw new RuntimeException("Empty list");
-        }
+        error();
 
         var current = element;
 
         while(current != null){
 
             var currentNext = current.getProx();
-
 
             while(currentNext != null){
 
@@ -399,12 +362,25 @@ public class List {
         updatePos();
     }
 
+    public List clone(){
+
+        error();
+
+        List clone = new List();
+
+        var current = element;
+
+        while(current != null){
+            clone.add(current.getValue());
+            current = current.getProx();
+        }
+
+        return clone;
+    }
+
     public boolean isThere(Integer value){
 
-
-    if(size() == 0){
-        throw new RuntimeException("Empty List");
-    }
+    error();
 
     var current = element;
 
@@ -419,6 +395,12 @@ public class List {
 
     return false;
 
+    }
+
+    public void error(){
+        if(size() == 0){
+            throw new RuntimeException("Empty List");
+        }
     }
 
 }
