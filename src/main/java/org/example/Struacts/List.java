@@ -12,6 +12,16 @@ public class List {
         element = new Element(value);
     }
 
+    public List(int... values) {
+
+        element = new Element();
+
+        for(int v : values){
+            add(v);
+        }
+
+    }
+
     public List(){
         element = new Element();
     }
@@ -344,5 +354,10 @@ public class List {
         pos--;
 
         return get(element.getProx(), pos);
+    }
+
+    public void concatenate(List list){
+        getLast().setProx(list.getFirst());
+        updatePos();
     }
 }

@@ -29,7 +29,7 @@ ficarem disponíveis para o usuário programador.
 12. Utilize uma das estruturas para resolver o seguinte problema de soma:
 ((1+3)*(3+4))+7)/35. Esse problema pode ser modelado assim: 1 3 + 3 4 + * 7 + 35 /.
 
-13. Implemente o método “concatena(Lista l2)” na classe Lista. O método deve concatenar
+X 13. Implemente o método “concatena(Lista l2)” na classe Lista. O método deve concatenar
 os elementos da lista atual com os elementos da lista passada como parâmetro,
 retornando uma nova lista.
 

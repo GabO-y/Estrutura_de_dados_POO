@@ -1,30 +1,20 @@
 package org.example;
 
-import org.example.Struacts.*;
+import org.example.Struacts.List;
 
-public class Main {
+public class Main{
+
     public static void main(String[] args) {
 
-        List list = new List();
+        List list1 = new List(10,20,30);
+        List list2 = new List(40,50,60);
 
-        list.add(10);
-        list.add(20);
-        list.add(30);
-        list.add(40);
-        list.add(50);
-        list.add(60);
-        list.add(70);
+        list1.concatenate(list2);
 
-
-
-
-        list.show();
-
-
-
-
+        list1.show();
 
 
 
     }
+
 }
