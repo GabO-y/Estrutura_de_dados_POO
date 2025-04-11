@@ -94,8 +94,11 @@ public class List {
         }
 
         if(begin){
-            element = new Element(value, element,null, 1);
-            updatePos();
+            var aux = new Element(value, 1);
+
+            aux.setProx(element);
+
+            element = aux;
         }else{
             var aux = getLast();
             getLast().setProx(new Element(value, null, aux, getLast().getPos() + 1));
@@ -114,13 +117,13 @@ public class List {
             removeFirst();
         }
 
-        Element current = null;
+        var current = element;
 
-        for(int i = getLast().getPos() - 1; current == null; i--){
-                current = get(i);
+        while(current.getProx() != null){
+            current = current.getProx();
         }
 
-        current.setProx(null);
+        current.getAnte().setProx(null);
     }
 
 
@@ -153,13 +156,18 @@ public class List {
             return;
         }
 
-        Element current = null;
+        Element current = element;
 
-        for(int i = pos - 1; current == null; i--){
-            current = get(i);
+        while(current.getProx() != null){
+
+            if(current.getPos() == pos){
+                break;
+            }
+
+            current = current.getProx();
         }
 
-        current.setProx(current.getProx().getProx());
+        current.getAnte().setProx(current.getProx());
         updatePos();
 
     }
@@ -356,8 +364,61 @@ public class List {
         return get(element.getProx(), pos);
     }
 
+    public void removeDuplicate(){
+
+        if(size() == 0){
+            throw new RuntimeException("Empty list");
+        }
+
+        var current = element;
+
+        while(current != null){
+
+            var currentNext = current.getProx();
+
+
+            while(currentNext != null){
+
+                if(current.getValue().equals(currentNext.getValue())){
+
+                    System.out.println("current = next: " + currentNext.getPos());
+
+                    remove(currentNext.getPos());
+                }
+
+                currentNext = currentNext.getProx();
+            }
+
+            current = current.getProx();
+        }
+
+    }
+
     public void concatenate(List list){
         getLast().setProx(list.getFirst());
         updatePos();
     }
+
+    public boolean isThere(Integer value){
+
+
+    if(size() == 0){
+        throw new RuntimeException("Empty List");
+    }
+
+    var current = element;
+
+    while(current != null){
+
+        if(Objects.equals(current.getValue(), value)){
+            return true;
+        }
+
+        current = current.getProx();
+    }
+
+    return false;
+
+    }
+
 }

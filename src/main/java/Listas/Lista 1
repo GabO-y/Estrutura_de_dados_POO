@@ -33,7 +33,7 @@ X 13. Implemente o método “concatena(Lista l2)” na classe Lista. O método 
 os elementos da lista atual com os elementos da lista passada como parâmetro,
 retornando uma nova lista.
 
-14. Implemente um método “removeDuplicados” na classe Lista. Esse método deve
+X 14. Implemente um método “removeDuplicados” na classe Lista. Esse método deve
 percorrer a lista e remover todos os elementos duplicados, mantendo apenas a primeira
 ocorrência.
 
